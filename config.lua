@@ -25,6 +25,7 @@ lvim.builtin.terminal.open_mapping = "<c-`>"
 
 -- Plugins
 lvim.plugins = {
+  -- Motion
   { "tpope/vim-repeat" },
   {
     "ggandor/leap.nvim",
@@ -35,6 +36,7 @@ lvim.plugins = {
   },
   { "tpope/vim-surround" },
   { "nvim-tree/nvim-web-devicons" },
+  { "wellle/targets.vim" },
   -- Git
   {
     "sindrets/diffview.nvim",
