@@ -6,23 +6,42 @@
 lvim.format_on_save = false
 lvim.colorscheme = "tokyonight-moon"
 
+local telescope = require('telescope.builtin');
+
 -- Leader remaps
--- lvim.builtin.which_key.mappings[""]
+lvim.builtin.which_key.mappings["w"] = {
+  "<c-w>v<c-w>h:BufferLineCyclePrev<CR><c-w>l", "Split buffer"
+}
 lvim.builtin.which_key.mappings["f"] = {
   vim.lsp.buf.format, "Format buffer"
 }
-lvim.builtin.which_key.vmappings["p"] = {
-  '"_dp', "Paste without yanking"
+lvim.builtin.which_key.mappings["x"] = lvim.builtin.which_key.mappings["d"]
+
+lvim.builtin.which_key.mappings["d"] = {
+  vim.lsp.buf.declaration, "Go to declaration"
 }
-lvim.builtin.which_key.vmappings["d"] = {
-  '"_d', "Delete without yanking"
+lvim.builtin.which_key.mappings["D"] = {
+  vim.lsp.buf.definition, "Go to definition"
+}
+lvim.builtin.which_key.mappings["t"] = {
+  vim.lsp.buf.type_definition, "Go to type"
+}
+lvim.builtin.which_key.mappings["r"] = {
+  telescope.lsp_references, "Go to references"
+}
+lvim.builtin.which_key.mappings["i"] = {
+  vim.lsp.buf.implementation, "Go to implementation"
 }
 
-local telescope = require('telescope.builtin');
+lvim.lsp.buffer_mappings.normal_mode["gd"] = nil
+lvim.lsp.buffer_mappings.normal_mode["gD"] = nil
+lvim.lsp.buffer_mappings.normal_mode["gr"] = nil
+lvim.lsp.buffer_mappings.normal_mode["gI"] = nil
+lvim.lsp.buffer_mappings.normal_mode["gs"] = nil
+lvim.lsp.buffer_mappings.normal_mode["gl"] = nil
+
 lvim.keys.normal_mode["<c-f>"] = { telescope.grep_string }
 lvim.keys.normal_mode["<c-p>"] = { telescope.find_files }
-
-lvim.keys.normal_mode["gt"] = { vim.lsp.buf.type_definition }
 
 -- Non leader remaps
 lvim.builtin.terminal.open_mapping = "<c-`>"
@@ -64,7 +83,9 @@ lvim.plugins = {
   {
     "mrjones2014/nvim-ts-rainbow",
   },
-  { 'folke/tokyonight.nvim' }
+  { 'folke/tokyonight.nvim' },
+  -- Other
+  { "vim-scripts/ReplaceWithRegister" },
 }
 
 -- Rainbow
