@@ -18,10 +18,11 @@ lvim.builtin.which_key.vmappings["d"] = {
   '"_d', "Delete without yanking"
 }
 
-lvim.keys.normal_mode["<c-p>"] = ":lua require'telescope.builtin'.find_files()<CR>"
-lvim.keys.normal_mode["<c-f>"] = ":lua require'telescope.builtin'.grep_string()<CR>"
+local telescope = require('telescope.builtin');
+lvim.keys.normal_mode["<c-f>"] = { telescope.grep_string }
+lvim.keys.normal_mode["<c-p>"] = { telescope.find_files }
 
-lvim.keys.normal_mode["gt"] = ":lua vim.lsp.buf.type_definition()<CR>"
+lvim.keys.normal_mode["gt"] = { vim.lsp.buf.type_definition }
 
 -- Non leader remaps
 lvim.builtin.terminal.open_mapping = "<c-`>"
