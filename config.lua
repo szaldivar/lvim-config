@@ -4,7 +4,7 @@
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
 lvim.format_on_save = false
-lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "tokyonight-moon"
 
 -- Leader remaps
 -- lvim.builtin.which_key.mappings[""]
