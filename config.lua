@@ -41,6 +41,7 @@ lvim.lsp.buffer_mappings.normal_mode["gs"] = nil
 lvim.lsp.buffer_mappings.normal_mode["gl"] = nil
 
 lvim.keys.normal_mode["<c-f>"] = { telescope.grep_string }
+lvim.keys.visual_mode["<c-f>"] = "y|:Telescope live_grep default_text=<c-r>0<CR>"
 lvim.keys.normal_mode["<c-p>"] = { telescope.find_files }
 
 -- Non leader remaps
