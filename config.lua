@@ -85,6 +85,15 @@ lvim.plugins = {
     "mrjones2014/nvim-ts-rainbow",
   },
   { 'folke/tokyonight.nvim' },
+  -- Sessions
+  {
+    "rmagatti/auto-session",
+    config = function()
+      require("auto-session").setup {
+        log_level = "error",
+      }
+    end,
+  },
   -- Other
   { "vim-scripts/ReplaceWithRegister" },
 }
